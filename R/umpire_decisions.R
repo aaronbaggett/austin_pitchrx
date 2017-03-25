@@ -1,6 +1,10 @@
 # --------------------------------------------------------------
 # How many pitches do umpires see during games? 
 # How many decisions do home plate umpires make per game?
+#
+# Accessing and Analyzing MLB Pitch Tracking Data in R
+# Aaron R. Baggett, Ph.D.
+# March 28, 2017
 # --------------------------------------------------------------
 
 # Load package libraries
