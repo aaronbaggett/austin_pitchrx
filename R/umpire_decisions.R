@@ -9,9 +9,10 @@
 
 # Load package libraries
 library(dplyr)
+library(repmis)
 
 # Load *pitch* data.frame
-load("http://aaronbaggett.com/austin_pitchrx/data/pitch.Rda")
+repmis::source_data("https://github.com/aaronbaggett/austin_pitchrx/blob/master/data/pitch.Rda?raw=true")
 
 # Count total number of pitches in each 2016 game
 pitch %>% 
@@ -55,40 +56,3 @@ pitch_summs <- pitches %>%
     sd_prop = sd(prop))
 
 xtable::xtable(pitch_summs)
-
-
-
-
-
-
-
-
-
-
-# Filtering and manipulation operations
-# *atbat* table
-atbats <- atbat %>%
-  select(num, stand, b_height, batter_name, gameday_link) %>%
-  group_by(gameday_link)
-atbats <- collect(atbats, n = Inf)
-
-# *pitch* table
-pitches <- pitch %>%
-  select(call = des, sz_top, sz_bot, px, pz, zone, num, count, gameday_link) %>%
-  group_by(gameday_link)
-pitches <- collect(pitches, n = Inf)
-
-# *umpire* table
-umpires <- umpire %>%
-  select(position, umpire = name, gameday_link) %>%
-  filter(position == "home") %>%
-  group_by(gameday_link)
-umpires <- collect(umpires, n = Inf)
-
-# Join *atbat*, *pitch*, and *umpire* by *gameday_link*
-ps_abs <- left_join(pitch_decs, atbats, by = c("num", "gameday_link"))
-ps_abs_us <- left_join(ps_abs, umpires, by = "gameday_link", copy = TRUE)
-
-pfx_16 <- tbl_df(as.data.frame(ps_abs_us, n = -1))
-save(pfx_16, file = "~/Dropbox/Research Projects/Austin_R_Meetup/data/pfx_16.Rda")
-
