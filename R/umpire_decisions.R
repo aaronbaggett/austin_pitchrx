@@ -39,9 +39,6 @@ decisions <- pitch %>%
 # Join *decisions* and *observed*
 pitches <- left_join(decisions, observed, by = "gameday_link")
 
-# Convert *pitches* to data.frame
-pitches <- tbl_df(pitches)
-
 # Add proportion of decisions per game
 pitches <- pitches %>% 
   mutate(prop = decisions/observed)
