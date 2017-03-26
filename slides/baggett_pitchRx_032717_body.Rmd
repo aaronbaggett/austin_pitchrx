@@ -67,35 +67,18 @@ load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
 
 \footnotesize
 ```{r, eval = FALSE}
-# Initialize SQLite database
-# NOTE: You may replace `db` with year (e.g., pfx_16)
 pfx_db <- src_sqlite("pfx_db.sqlite3", create = TRUE)
-
-# Set XML files to collect
 files <- c("inning/inning_all.xml", "players.xml", "miniscoreboard.xml")
-
-# Scrape data
-scrape(start = "YYY-MM-DD", end = "YYY-MM-DD", suffix = files, connect = pfx_db$con)
-
-# Verify *pfx_db* tables
-pfx_db
-
-# Load *pfx_db* DB
+scrape(start = "YYY-MM-DD", end = "YYY-MM-DD", suffix = files, 
+  connect = pfx_db$con)
 pfx_db <- src_sqlite("~/your/working/directory/pfx_db.sqlite3")
+src_tbls(pfx_16)
 ```
 
 ## `pitchRx`
 - Once we set up a PITCHf/x database, we have access to all MLB pitch and gameplay data
 - Best to use a small date range for initial setup
-- 
-
-src_tbls(pfx_16)
-
-## `dplyr`
-- Wickham and Francois (2016)
-- List
-    - Subitem
-    - Subitem
+- 10 primary tables in the data
 
 ## PITCHf/x Data Tables
 \small
@@ -143,6 +126,22 @@ Table Name & Description \\
 \end{tabular}
 \end{table}
 
+## `dplyr`
+- Wickham and Francois (2016)
+- A grammar of data manipulation
+- Provides a set of verbs for lots of tasks
+    - `select()`: Selects columns
+    - `filter()`: Filters rows (e.g., `==`, `!=`, `<=`, etc.)
+    - `arrange()`: Re-orders and sorts rows
+    - `mutate()`: Creates new variables/columns
+    - `summarise()`: Summarizes values/output
+    - `group_by()`: Allows for by-group operations
+
+## Accessing MLB Pitch Tracking Data
+- R packages:
+    1. *`pitchRx`*: Data collection
+    2. *`dplyr`*: Data analysis
+
 # Analyzing MLB Pitch Tracking Data
 
 ## Tonight
@@ -150,9 +149,8 @@ Table Name & Description \\
     - Ex.: Pitching/batting outcomes, predictive models, et al.
 - Tonight though, let's concentrate on home plate umpire decisions
 - Specifically:
-    1. How many pitches do umpires see during games? Of those, how many require an umpire decision?
-    2. How accurate are umpires given pitch count and location?
-    3. Does umpire accuracy change from week to week over the course of the season?
+    1. How many pitches do umpires see during games? Of those, how many require a decision?
+    2. How accurate are *all* umpires over the season? How accurate are *individual* umpires over the season?
 
 ## 1. Pitches Seen vs. Decisions Made
 - How many pitches do umpires see during games? Of those, how many require an umpire decision?
@@ -359,11 +357,8 @@ pitches <- pitches %>%
     sd_prop = sd(prop)))
 ```
 
-## Contextual Umpire Accuracy
-- Text
-
-## Cumulative Umpire Accuracy
-- Text
+## Umpire Accuracy
+- To evaluate umpire accuracy, we need to join
 
 # Questions?
 

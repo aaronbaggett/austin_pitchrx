@@ -1,6 +1,6 @@
 # --------------------------------------------------------------
 # How accurate are all umpires over the season?
-# How accurate individual umpires over the season?
+# How accurate are individual umpires over the season?
 #
 # Accessing and Analyzing MLB Pitch Tracking Data in R
 # Aaron R. Baggett, Ph.D.
