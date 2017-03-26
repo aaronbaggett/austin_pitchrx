@@ -113,3 +113,27 @@ ggplot(data = ind_acc, mapping = aes(x = mean_acc, y = umpire, group = 1)) +
     name = "\nMean Accuracy Over Season") +
   scale_y_discrete(name = "Umpire\n") +
   theme_bw() + theme(panel.grid.minor = element_blank())
+
+# Umpire accuracy for each game by umpire
+acc_df <- pfx_16 %>% 
+  group_by(game_date, umpire) %>% 
+  summarize(mean_acc = mean(u_test_adj), 
+    sd_acc = sd(u_test_adj))
+
+# Count number of games umpired during season
+games <- as.data.frame(table(acc_df$umpire))$Freq
+
+# Calculate overall summary statistics for accuracy rates
+pfx_16 %>% 
+  group_by(umpire) %>% 
+  summarize(mean_acc = mean(u_test_adj),
+    sd_acc = sd(u_test_adj)) %>% 
+  mutate(games = games) %>%
+  mutate(se_acc = sd_acc/sqrt(games)) %>% 
+  mutate(ll_ci = mean_acc - (2 * (sd_acc / sqrt(games)))) %>% 
+  mutate(ul_ci = mean_acc + (1 * (sd_acc / sqrt(games)))) %>% 
+  summarize(acc = mean(mean_acc),
+    sd = mean(sd_acc),
+    se = mean(se_acc),
+    ll_ci = mean(ll_ci),
+    ul_ci = mean(ul_ci))
