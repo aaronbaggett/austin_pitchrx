@@ -24,6 +24,7 @@ classoption: aspectratio = 1610
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
+library(ggplot2)
 load("~/Dropbox/Research Projects/Austin_R_Meetup/data/atbat.Rda")
 load("~/Dropbox/Research Projects/Austin_R_Meetup/data/pitch.Rda")
 load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
@@ -52,12 +53,6 @@ load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
 \includegraphics[width = 5in]{../figs/gd_inning_all.png}
 \end{center}
 
-## MLB Pitch Tracking Data
-- Prior to 2013, researchers had to scrape PITCHf/x data manually
-- In 2013, Carson Sievert created the `pitchRx` R package
-- *`pitchRx`* contains tools for accessing play-by-play data
-- `pitchRx::scrape()` pulls all PITCHf/x data for a particular date range
-
 # Accessing MLB Pitch Tracking Data
 
 ## Accessing MLB Pitch Tracking Data
@@ -66,10 +61,35 @@ load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
     2. *`dplyr`*: Data analysis
 
 ## `pitchRx`
-- Sievert (2014)
-- List
-    - Subitem
-    - Subitem
+- Prior to 2013, researchers had to scrape PITCHf/x data manually
+- In 2013, Carson Sievert created the `pitchRx` R package
+- *`pitchRx`* contains tools for accessing play-by-play data
+
+\footnotesize
+```{r, eval = FALSE}
+# Initialize SQLite database
+# NOTE: You may replace `db` with year (e.g., pfx_16)
+pfx_db <- src_sqlite("pfx_db.sqlite3", create = TRUE)
+
+# Set XML files to collect
+files <- c("inning/inning_all.xml", "players.xml", "miniscoreboard.xml")
+
+# Scrape data
+scrape(start = "YYY-MM-DD", end = "YYY-MM-DD", suffix = files, connect = pfx_db$con)
+
+# Verify *pfx_db* tables
+pfx_db
+
+# Load *pfx_db* DB
+pfx_db <- src_sqlite("~/your/working/directory/pfx_db.sqlite3")
+```
+
+## `pitchRx`
+- Once we set up a PITCHf/x database, we have access to all MLB pitch and gameplay data
+- Best to use a small date range for initial setup
+- 
+
+src_tbls(pfx_16)
 
 ## `dplyr`
 - Wickham and Francois (2016)

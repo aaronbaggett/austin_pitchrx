@@ -51,5 +51,3 @@ pitch_summs <- pitches %>%
     sd_calls = sd(decisions),
     m_prop = mean(prop),
     sd_prop = sd(prop))
-
-xtable::xtable(pitch_summs)
