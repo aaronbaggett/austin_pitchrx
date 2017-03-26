@@ -358,7 +358,27 @@ pitches <- pitches %>%
 ```
 
 ## Umpire Accuracy
-- To evaluate umpire accuracy, we need to join
+- Check out `umpire_accuracy.R` in my GitHub Repo for this talk
+- Overall, umpires are quite accurate
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lllr}
+\hline
+Mean & SD & SEM & 95\% CI \\ 
+\hline
+0.94 & 0.24 & 0.05 & [0.84, 0.98] \\ 
+\hline
+\end{tabular}
+\end{table}
+
+## Umpire Accuracy
+- Here's a plot of the cumulative accuracy for MLB umpires over the season
+
+\vspace{-1mm}
+\begin{center}
+\includegraphics[width = 5in]{../figs/ump_acc_season.pdf}
+\end{center}
 
 # Questions?
 
