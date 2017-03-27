@@ -1,11 +1,12 @@
 
+
 \begin{document}
 \maketitle
 
 \begin{frame}{Resources}
 
 \begin{itemize}
-\tightlist
+
 \item
   Slides, data, and R code are available at:
 \end{itemize}
@@ -23,7 +24,7 @@ Data}{Major League Baseball (MLB) Pitch Tracking Data}}\label{major-league-baseb
 \begin{frame}{MLB Pitch Tracking Data}
 
 \begin{itemize}
-\tightlist
+
 \item
   Since 2007, MLB has tracked pitch location and play-by-play data for
   all games
@@ -40,14 +41,14 @@ Data}{Major League Baseball (MLB) Pitch Tracking Data}}\label{major-league-baseb
 \begin{frame}{MLB Pitch Tracking Data}
 
 \begin{itemize}
-\tightlist
+
 \item
   Location:
   \color{brightpink}\url{http://gd2.mlb.com/components/game/mlb/}
 \end{itemize}
 
 \vspace{-1mm}\begin{center}
-\includegraphics[width = 5in]{../figs/gd_inning_all.png}
+\includegraphics[width = 4.5in]{../figs/gd_inning_all.png}
 \end{center}
 
 \end{frame}
@@ -58,17 +59,17 @@ Data}\label{accessing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{Accessing MLB Pitch Tracking Data}
 
 \begin{itemize}
-\tightlist
+
 \item
   R packages:
 
   \begin{enumerate}
   \def\labelenumi{\arabic{enumi}.}
-  \tightlist
+  
   \item
-    \emph{\texttt{pitchRx}}: Data collection
+    \textbf{\texttt{pitchRx}}: Data collection
   \item
-    \emph{\texttt{dplyr}}: Data analysis
+    \textbf{\texttt{dplyr}}: Data analysis
   \end{enumerate}
 \end{itemize}
 
@@ -77,13 +78,31 @@ Data}\label{accessing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{\texttt{pitchRx}}
 
 \begin{itemize}
-\tightlist
+
 \item
   Prior to 2013, researchers had to scrape PITCHf/x data manually
 \item
-  In 2013, Carson Sievert created the \texttt{pitchRx} R package
+  In 2013, Carson Sievert created the \textbf{\texttt{pitchRx}} R
+  package
 \item
-  \emph{\texttt{pitchRx}} contains tools for accessing play-by-play data
+  \textbf{\texttt{pitchRx}} contains tools for accessing play-by-play
+  data
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{pitchRx}}
+
+\begin{itemize}
+
+\item
+  Prior to 2013, researchers had to scrape PITCHf/x data manually
+\item
+  In 2013, Carson Sievert created the \textbf{\texttt{pitchRx}} R
+  package
+\item
+  \textbf{\texttt{pitchRx}} contains tools for accessing play-by-play
+  data
 \end{itemize}
 
 \footnotesize
@@ -104,7 +123,7 @@ Data}\label{accessing-mlb-pitch-tracking-data}
 \begin{frame}{\texttt{pitchRx}}
 
 \begin{itemize}
-\tightlist
+
 \item
   Once we set up a PITCHf/x database, we have access to all MLB pitch
   and gameplay data
@@ -173,7 +192,7 @@ Table Name & Description \\
 \begin{frame}[fragile]{\texttt{dplyr}}
 
 \begin{itemize}
-\tightlist
+
 \item
   Wickham and Francois (2016)
 \item
@@ -182,20 +201,20 @@ Table Name & Description \\
   Provides a set of verbs for lots of tasks
 
   \begin{itemize}
-  \tightlist
+  
   \item
-    \texttt{select()}: Selects columns
+    \emph{\texttt{select()}}: Selects columns
   \item
-    \texttt{filter()}: Filters rows (e.g., \texttt{==}, \texttt{!=},
-    \texttt{\textless{}=}, etc.)
+    \emph{\texttt{filter()}}: Filters rows (e.g., \texttt{==},
+    \texttt{!=}, \texttt{\textless{}=}, etc.)
   \item
-    \texttt{arrange()}: Re-orders and sorts rows
+    \emph{\texttt{arrange()}}: Re-orders and sorts rows
   \item
-    \texttt{mutate()}: Creates new variables/columns
+    \emph{\texttt{mutate()}}: Creates new variables/columns
   \item
-    \texttt{summarise()}: Summarizes values/output
+    \emph{\texttt{summarise()}}: Summarizes values/output
   \item
-    \texttt{group\_by()}: Allows for by-group operations
+    \emph{\texttt{group\_by()}}: Allows for by-group operations
   \end{itemize}
 \end{itemize}
 
@@ -204,17 +223,17 @@ Table Name & Description \\
 \begin{frame}[fragile]{Accessing MLB Pitch Tracking Data}
 
 \begin{itemize}
-\tightlist
+
 \item
   R packages:
 
   \begin{enumerate}
   \def\labelenumi{\arabic{enumi}.}
-  \tightlist
+  
   \item
-    \emph{\texttt{pitchRx}}: Data collection
+    \textbf{\texttt{pitchRx}}: Data collection
   \item
-    \emph{\texttt{dplyr}}: Data analysis
+    \textbf{\texttt{dplyr}}: Data analysis
   \end{enumerate}
 \end{itemize}
 
@@ -226,12 +245,12 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}{Tonight}
 
 \begin{itemize}
-\tightlist
+
 \item
   There are several ways to analyze PITCHf/x data
 
   \begin{itemize}
-  \tightlist
+  
   \item
     Ex.: Pitching/batting outcomes, predictive models, et al.
   \end{itemize}
@@ -242,7 +261,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 
   \begin{enumerate}
   \def\labelenumi{\arabic{enumi}.}
-  \tightlist
+  
   \item
     How many pitches do umpires see during games? Of those, how many
     require a decision?
@@ -257,13 +276,13 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   How many pitches do umpires see during games? Of those, how many
   require an umpire decision?
 
   \begin{itemize}
-  \tightlist
+  
   \item
     \textbf{Pitches seen:} Total number of recorded pitches thrown
     during game
@@ -278,7 +297,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   We'll use the \texttt{pitch} table to answer these questions
 \item
@@ -286,7 +305,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 
   \begin{enumerate}
   \def\labelenumi{\arabic{enumi}.}
-  \tightlist
+  
   \item
     Create data frame for pitches seen, \texttt{observed}
   \item
@@ -305,7 +324,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 1. Create data frame for pitches seen
 \end{itemize}
@@ -325,138 +344,19 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
-\item
-  Step 1. Create data frame for pitches seen
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{pitch}: Current data frame
-  \end{itemize}
-\end{itemize}
-
-\footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{observed <-}\StringTok{ }\NormalTok{pitch %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(gameday_link) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{seen =} \KeywordTok{n}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-\end{frame}
-
-\begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
-
-\begin{itemize}
-\tightlist
-\item
-  Step 1. Create data frame for pitches seen
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{pitch}: Current data frame
-  \item
-    \texttt{group\_by()}, \texttt{summarize()}, \texttt{n()}:
-    \emph{\texttt{dplyr}} verbs
-  \end{itemize}
-\end{itemize}
-
-\footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{observed <-}\StringTok{ }\NormalTok{pitch %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(gameday_link) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{seen =} \KeywordTok{n}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-\end{frame}
-
-\begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
-
-\begin{itemize}
-\tightlist
-\item
-  Step 1. Create data frame for pitches seen
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{pitch}: Current data frame
-  \item
-    \texttt{group\_by()}, \texttt{summarize()}, \texttt{n()}:
-    \emph{\texttt{dplyr}} verbs
-  \item
-    \texttt{gameday\_link}: Unique date/team label
-  \end{itemize}
-\end{itemize}
-
-\footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{observed <-}\StringTok{ }\NormalTok{pitch %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(gameday_link) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{seen =} \KeywordTok{n}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-\end{frame}
-
-\begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
-
-\begin{itemize}
-\tightlist
-\item
-  Step 1. Create data frame for pitches seen
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{pitch}: Current data frame
-  \item
-    \texttt{group\_by()}, \texttt{summarize()}, \texttt{n()}:
-    \emph{\texttt{dplyr}} verbs
-  \item
-    \texttt{gameday\_link}: Unique date/team label
-  \item
-    \texttt{seen}: New name for variable \texttt{n()}
-  \end{itemize}
-\end{itemize}
-
-\footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{observed <-}\StringTok{ }\NormalTok{pitch %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(gameday_link) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{seen =} \KeywordTok{n}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-\end{frame}
-
-\begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
-
-\begin{itemize}
-\tightlist
 \item
   Step 1. Create data frame for pitches seen
 \item
   R code:
 
   \begin{itemize}
-  \tightlist
+  
   \item
     \texttt{pitch}: Current data frame
   \item
     \texttt{group\_by()}, \texttt{summarize()}, \texttt{n()}:
-    \emph{\texttt{dplyr}} verbs
+    \texttt{dplyr} verbs
   \item
     \texttt{gameday\_link}: Unique date/team label
   \item
@@ -481,7 +381,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 1. Create data frame for pitches seen
 \end{itemize}
@@ -518,7 +418,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 2. Create data frame for decisions made
 \item
@@ -542,7 +442,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 2. Create data frame for decisions made
 \item
@@ -552,7 +452,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
   R code:
 
   \begin{itemize}
-  \tightlist
+  
   \item
     \texttt{filter()}: Returns rows with matching conditions
   \end{itemize}
@@ -574,7 +474,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 2. Create data frame for decisions made
 \end{itemize}
@@ -612,7 +512,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 3. Join \texttt{observed} and \texttt{decisions} by
   \texttt{gameday\_link}
@@ -631,7 +531,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 3. Join \texttt{observed} and \texttt{decisions} by
   \texttt{gameday\_link}
@@ -639,10 +539,10 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
   R code:
 
   \begin{itemize}
-  \tightlist
+  
   \item
-    \texttt{inner\_join()}: Returns observations that match in both x
-    and y
+    \emph{\texttt{inner\_join()}}: Returns observations that match in
+    both x and y
   \end{itemize}
 \end{itemize}
 
@@ -659,7 +559,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 3. Join \texttt{observed} and \texttt{decisions} by
   \texttt{gameday\_link}
@@ -695,7 +595,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 4. Calculate proportion of pitches requiring decision
 \end{itemize}
@@ -714,11 +614,17 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 4. Calculate proportion of pitches requiring decision
 \item
-  R code: \texttt{mutate()}: Adds new variable
+  R code:
+
+  \begin{itemize}
+  
+  \item
+    \emph{\texttt{mutate()}}: Adds new variable
+  \end{itemize}
 \end{itemize}
 
 \footnotesize
@@ -735,7 +641,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 4. Calculate proportion of pitches requiring decision
 \end{itemize}
@@ -771,7 +677,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{1. Pitches Seen vs.~Decisions Made}
 
 \begin{itemize}
-\tightlist
+
 \item
   Step 5. Calculate simple descriptive statistics
 \end{itemize}
@@ -802,7 +708,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{frame}[fragile]{Umpire Accuracy}
 
 \begin{itemize}
-\tightlist
+
 \item
   Check out \texttt{umpire\_accuracy.R} in my GitHub Repo for this talk
 \item
@@ -813,9 +719,9 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \centering
 \begin{tabular}{lllr}
 \hline
-Mean & SD & SEM & 95\% CI \\ 
+\em{M} & \em{SD} & \em{SEM} & 95\% CI \\
 \hline
-0.94 & 0.24 & 0.05 & [0.84, 0.98] \\ 
+0.94 & 0.24 & 0.05 & [0.84, 0.98] \\
 \hline
 \end{tabular}
 \end{table}
@@ -825,7 +731,7 @@ Mean & SD & SEM & 95\% CI \\
 \begin{frame}{Umpire Accuracy}
 
 \begin{itemize}
-\tightlist
+
 \item
   Here's a plot of the cumulative accuracy for MLB umpires over the
   season

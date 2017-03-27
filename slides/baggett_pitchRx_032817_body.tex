@@ -1,124 +1,7 @@
-\documentclass[14pt,ignorenonframetext,aspectratio = 1610]{beamer}
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{caption label separator}{: }
-\setbeamercolor{caption name}{fg=normal text.fg}
-\beamertemplatenavigationsymbolsempty
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-\ifxetex
-\usepackage{mathspec}
-\else
-\usepackage{fontspec}
-\fi
-\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\setmainfont[]{Roboto}
-\setmonofont[Mapping=tex-ansi]{Lucida Console}
-\fi
-\usefonttheme{serif} % use mainfont rather than sansfont for slide text
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\newif\ifbibliography
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 
-% Prevent slide breaks in the middle of a paragraph:
-\widowpenalties 1 10000
-\raggedbottom
-
-\AtBeginPart{
-\let\insertpartnumber\relax
-\let\partname\relax
-\frame{\partpage}
-}
-\AtBeginSection{
-\ifbibliography
-\else
-\let\insertsectionnumber\relax
-\let\sectionname\relax
-\frame{\sectionpage}
-\fi
-}
-\AtBeginSubsection{
-\let\insertsubsectionnumber\relax
-\let\subsectionname\relax
-\frame{\subsectionpage}
-}
-
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-\usepackage{fontspec}
-\usepackage{fontawesome}
-\newfontfamily{\FA}{FontAwesome}
-%\usepackage[table,x11names]{xcolor}
-%\usepackage{hyperref}
-%\hypersetup{colorlinks, urlcolor = magenta}
-\usepackage{color, colortbl}
-\definecolor{SpringGreen}{rgb}{0, 1, 0.498}
-\definecolor{brightpink}{rgb}{1.0, 0.0, 0.5}
-\newcommand{\R}{\textbf{\textsf{R}}}
-
-\title{Accessing and Analyzing\\
-MLB Pitch Tracking Data in R}
-\author{Aaron R. Baggett, Ph.D.}
-\institute{University of Mary Hardin-Baylor\\
-Department of Psychology}
-\date{March 28, 2017}
 
 \begin{document}
-\frame{\titlepage}
+\maketitle
 
 \begin{frame}{Resources}
 
@@ -184,9 +67,9 @@ Data}\label{accessing-mlb-pitch-tracking-data}
   \def\labelenumi{\arabic{enumi}.}
   \tightlist
   \item
-    \emph{\texttt{pitchRx}}: Data collection
+    \textbf{\texttt{pitchRx}}: Data collection
   \item
-    \emph{\texttt{dplyr}}: Data analysis
+    \textbf{\texttt{dplyr}}: Data analysis
   \end{enumerate}
 \end{itemize}
 
@@ -199,9 +82,11 @@ Data}\label{accessing-mlb-pitch-tracking-data}
 \item
   Prior to 2013, researchers had to scrape PITCHf/x data manually
 \item
-  In 2013, Carson Sievert created the \emph{\texttt{pitchRx}} R package
+  In 2013, Carson Sievert created the \textbf{\texttt{pitchRx}} R
+  package
 \item
-  \emph{\texttt{pitchRx}} contains tools for accessing play-by-play data
+  \textbf{\texttt{pitchRx}} contains tools for accessing play-by-play
+  data
 \end{itemize}
 
 \end{frame}
@@ -213,9 +98,11 @@ Data}\label{accessing-mlb-pitch-tracking-data}
 \item
   Prior to 2013, researchers had to scrape PITCHf/x data manually
 \item
-  In 2013, Carson Sievert created the \emph{\texttt{pitchRx}} R package
+  In 2013, Carson Sievert created the \textbf{\texttt{pitchRx}} R
+  package
 \item
-  \emph{\texttt{pitchRx}} contains tools for accessing play-by-play data
+  \textbf{\texttt{pitchRx}} contains tools for accessing play-by-play
+  data
 \end{itemize}
 
 \footnotesize
@@ -344,9 +231,9 @@ Table Name & Description \\
   \def\labelenumi{\arabic{enumi}.}
   \tightlist
   \item
-    \emph{\texttt{pitchRx}}: Data collection
+    \textbf{\texttt{pitchRx}}: Data collection
   \item
-    \emph{\texttt{dplyr}}: Data analysis
+    \textbf{\texttt{dplyr}}: Data analysis
   \end{enumerate}
 \end{itemize}
 
@@ -420,11 +307,11 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
   \def\labelenumi{\arabic{enumi}.}
   \tightlist
   \item
-    Create data frame for pitches seen, \emph{\texttt{observed}}
+    Create data frame for pitches seen, \texttt{observed}
   \item
-    Create data frame for decisions made, \emph{\texttt{decisions}}
+    Create data frame for decisions made, \texttt{decisions}
   \item
-    Join \emph{\texttt{observed}} and \emph{\texttt{decisions}}
+    Join \texttt{observed} and \texttt{decisions}
   \item
     Calculate proportion of pitches requiring decision
   \item
@@ -466,16 +353,16 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
   \begin{itemize}
   \tightlist
   \item
-    \emph{\texttt{pitch}}: Current data frame
+    \texttt{pitch}: Current data frame
   \item
-    \emph{\texttt{group\_by()}}, \emph{\texttt{summarize()}},
-    \emph{\texttt{n()}}: \emph{\texttt{dplyr}} verbs
+    \texttt{group\_by()}, \texttt{summarize()}, \texttt{n()}:
+    \texttt{dplyr} verbs
   \item
-    \emph{\texttt{gameday\_link}}: Unique date/team label
+    \texttt{gameday\_link}: Unique date/team label
   \item
-    \emph{\texttt{seen}}: New name for variable \texttt{n()}
+    \texttt{seen}: New name for variable \texttt{n()}
   \item
-    \emph{\texttt{observed}}: Name of new data frame
+    \texttt{observed}: Name of new data frame
   \end{itemize}
 \end{itemize}
 
@@ -567,7 +454,7 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
   \begin{itemize}
   \tightlist
   \item
-    \emph{\texttt{filter()}}: Returns rows with matching conditions
+    \texttt{filter()}: Returns rows with matching conditions
   \end{itemize}
 \end{itemize}
 
@@ -627,8 +514,8 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{itemize}
 \tightlist
 \item
-  Step 3. Join \emph{\texttt{observed}} and \emph{\texttt{decisions}} by
-  \emph{\texttt{gameday\_link}}
+  Step 3. Join \texttt{observed} and \texttt{decisions} by
+  \texttt{gameday\_link}
 \end{itemize}
 
 \footnotesize
@@ -646,8 +533,8 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{itemize}
 \tightlist
 \item
-  Step 3. Join \emph{\texttt{observed}} and \emph{\texttt{decisions}} by
-  \emph{\texttt{gameday\_link}}
+  Step 3. Join \texttt{observed} and \texttt{decisions} by
+  \texttt{gameday\_link}
 \item
   R code:
 
@@ -674,8 +561,8 @@ Data}\label{analyzing-mlb-pitch-tracking-data}
 \begin{itemize}
 \tightlist
 \item
-  Step 3. Join \emph{\texttt{observed}} and \emph{\texttt{decisions}} by
-  \emph{\texttt{gameday\_link}}
+  Step 3. Join \texttt{observed} and \texttt{decisions} by
+  \texttt{gameday\_link}
 \end{itemize}
 
 \footnotesize

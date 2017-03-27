@@ -58,18 +58,18 @@ load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
 
 ## Accessing MLB Pitch Tracking Data
 - R packages:
-    1. *`pitchRx`*: Data collection
-    2. *`dplyr`*: Data analysis
+    1. **`pitchRx`**: Data collection
+    2. **`dplyr`**: Data analysis
 
 ## `pitchRx`
 - Prior to 2013, researchers had to scrape PITCHf/x data manually
-- In 2013, Carson Sievert created the *`pitchRx`* R package
-- *`pitchRx`* contains tools for accessing play-by-play data
+- In 2013, Carson Sievert created the **`pitchRx`** R package
+- **`pitchRx`** contains tools for accessing play-by-play data
 
 ## `pitchRx`
 - Prior to 2013, researchers had to scrape PITCHf/x data manually
-- In 2013, Carson Sievert created the *`pitchRx`* R package
-- *`pitchRx`* contains tools for accessing play-by-play data
+- In 2013, Carson Sievert created the **`pitchRx`** R package
+- **`pitchRx`** contains tools for accessing play-by-play data
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -145,8 +145,8 @@ Table Name & Description \\
 
 ## Accessing MLB Pitch Tracking Data
 - R packages:
-    1. *`pitchRx`*: Data collection
-    2. *`dplyr`*: Data analysis
+    1. **`pitchRx`**: Data collection
+    2. **`dplyr`**: Data analysis
 
 # Analyzing MLB Pitch Tracking Data
 
@@ -166,9 +166,9 @@ Table Name & Description \\
 ## 1. Pitches Seen vs. Decisions Made
 - We'll use the `pitch` table to answer these questions
 - Steps:
-    1. Create data frame for pitches seen, *`observed`*
-    2. Create data frame for decisions made, *`decisions`*
-    3. Join *`observed`* and *`decisions`*
+    1. Create data frame for pitches seen, `observed`
+    2. Create data frame for decisions made, `decisions`
+    3. Join `observed` and `decisions`
     4. Calculate proportion of pitches requiring decision
     5. Calculate simple descriptive statistics
 
@@ -237,11 +237,11 @@ observed <- pitch %>%
 ## 1. Pitches Seen vs. Decisions Made
 - Step 1. Create data frame for pitches seen
 - R code:
-    - *`pitch`*: Current data frame
-    - *`group_by()`*, *`summarize()`*, *`n()`*: *`dplyr`* verbs
-    - *`gameday_link`*: Unique date/team label
-    - *`seen`*: New name for variable `n()`
-    - *`observed`*: Name of new data frame
+    - `pitch`: Current data frame
+    - `group_by()`, `summarize()`, `n()`: `dplyr` verbs
+    - `gameday_link`: Unique date/team label
+    - `seen`: New name for variable `n()`
+    - `observed`: Name of new data frame
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -276,7 +276,7 @@ decisions <- pitch %>%
 - Step 2. Create data frame for decisions made
 - We need to omit all pitches/outcomes except for called strikes and called balls
 - R code:
-    - *`filter()`*: Returns rows with matching conditions
+    - `filter()`: Returns rows with matching conditions
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -298,7 +298,7 @@ decisions <- pitch %>%
 ```
 
 ## 1. Pitches Seen vs. Decisions Made
-- Step 3. Join *`observed`* and *`decisions`* by *`gameday_link`*
+- Step 3. Join `observed` and `decisions` by `gameday_link`
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -306,7 +306,7 @@ pitches <- inner_join(observed, decisions, by = "gameday_link")
 ```
 
 ## 1. Pitches Seen vs. Decisions Made
-- Step 3. Join *`observed`* and *`decisions`* by *`gameday_link`*
+- Step 3. Join `observed` and `decisions` by `gameday_link`
 - R code:
     - *`inner_join()`*: Returns observations that match in both x and y
 
@@ -316,7 +316,7 @@ pitches <- inner_join(observed, decisions, by = "gameday_link")
 ```
 
 ## 1. Pitches Seen vs. Decisions Made
-- Step 3. Join *`observed`* and *`decisions`* by *`gameday_link`*
+- Step 3. Join `observed` and `decisions` by `gameday_link`
 
 \footnotesize
 ```{r}
