@@ -26,9 +26,9 @@ classoption: aspectratio = 1610
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(ggplot2)
-load("~/Dropbox/Research Projects/Austin_R_Meetup/data/atbat.Rda")
-load("~/Dropbox/Research Projects/Austin_R_Meetup/data/pitch.Rda")
-load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
+repmis::source_data("https://github.com/aaronbaggett/austin_pitchrx/blob/master/data/atbat.Rda?raw=true")
+repmis::source_data("https://github.com/aaronbaggett/austin_pitchrx/blob/master/data/pitch.Rda?raw=true")
+repmis::source_data("https://github.com/aaronbaggett/austin_pitchrx/blob/master/data/umpire.Rda?raw=true")
 ```
 
 ## Resources
