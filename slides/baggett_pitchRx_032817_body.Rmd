@@ -13,7 +13,7 @@ output:
     highlight: tango
     includes:
       in_header: header.tex
-    keep_tex: yes
+    # keep_tex: yes
     pandoc_args: --latex-engine=xelatex
     # theme: Antibes
 monofont: Lucida Console # Comment out for default
