@@ -89,6 +89,7 @@ cum_acc <- pfx_16 %>%
 ggplot(data = cum_acc, mapping = aes(x = day_num, y = mean_acc)) + 
   geom_line(color = "dodgerblue3") + 
   geom_vline(xintercept = 181, color = "tomato") +
+  geom_hline(yintercept = 0.9359443, color = "tomato") +
   scale_x_continuous(breaks = seq(0, 205, 10), 
     name = "\nDay Number of Season") +
   scale_y_continuous(breaks = seq(0, 1, .01), 

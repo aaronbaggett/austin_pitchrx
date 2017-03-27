@@ -10,13 +10,14 @@ institute: |
   | Department of Psychology
 output: 
   beamer_presentation: 
-    pandoc_args: "--latex-engine=xelatex"
     highlight: tango
-    # keep_tex: yes
     includes:
       in_header: header.tex
+    keep_tex: yes
+    pandoc_args: --latex-engine=xelatex
+    # theme: Antibes
 monofont: Lucida Console # Comment out for default
-# mainfont: Roboto # Comment out for default
+mainfont: Roboto # Comment out for default
 fontsize: 14pt
 classoption: aspectratio = 1610
 ---
@@ -50,7 +51,7 @@ load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
 
 \vspace{-1mm}
 \begin{center}
-\includegraphics[width = 5in]{../figs/gd_inning_all.png}
+\includegraphics[width = 4.5in]{../figs/gd_inning_all.png}
 \end{center}
 
 # Accessing MLB Pitch Tracking Data
@@ -62,7 +63,12 @@ load("~/Dropbox/Research Projects/Austin_R_Meetup/data/umpire.Rda")
 
 ## `pitchRx`
 - Prior to 2013, researchers had to scrape PITCHf/x data manually
-- In 2013, Carson Sievert created the `pitchRx` R package
+- In 2013, Carson Sievert created the *`pitchRx`* R package
+- *`pitchRx`* contains tools for accessing play-by-play data
+
+## `pitchRx`
+- Prior to 2013, researchers had to scrape PITCHf/x data manually
+- In 2013, Carson Sievert created the *`pitchRx`* R package
 - *`pitchRx`* contains tools for accessing play-by-play data
 
 \footnotesize
@@ -130,12 +136,12 @@ Table Name & Description \\
 - Wickham and Francois (2016)
 - A grammar of data manipulation
 - Provides a set of verbs for lots of tasks
-    - `select()`: Selects columns
-    - `filter()`: Filters rows (e.g., `==`, `!=`, `<=`, etc.)
-    - `arrange()`: Re-orders and sorts rows
-    - `mutate()`: Creates new variables/columns
-    - `summarise()`: Summarizes values/output
-    - `group_by()`: Allows for by-group operations
+    - *`select()`*: Selects columns
+    - *`filter()`*: Filters rows (e.g., `==`, `!=`, `<=`, etc.)
+    - *`arrange()`*: Re-orders and sorts rows
+    - *`mutate()`*: Creates new variables/columns
+    - *`summarise()`*: Summarizes values/output
+    - *`group_by()`*: Allows for by-group operations
 
 ## Accessing MLB Pitch Tracking Data
 - R packages:
@@ -160,9 +166,9 @@ Table Name & Description \\
 ## 1. Pitches Seen vs. Decisions Made
 - We'll use the `pitch` table to answer these questions
 - Steps:
-    1. Create data frame for pitches seen, `observed`
-    2. Create data frame for decisions made, `decisions`
-    3. Join `observed` and `decisions`
+    1. Create data frame for pitches seen, *`observed`*
+    2. Create data frame for decisions made, *`decisions`*
+    3. Join *`observed`* and *`decisions`*
     4. Calculate proportion of pitches requiring decision
     5. Calculate simple descriptive statistics
 
@@ -176,6 +182,7 @@ observed <- pitch %>%
   summarize(seen = n())
 ```
 
+<!--
 ## 1. Pitches Seen vs. Decisions Made
 - Step 1. Create data frame for pitches seen
     - `pitch`: Current data frame
@@ -225,15 +232,16 @@ observed <- pitch %>%
   group_by(gameday_link) %>% 
   summarize(seen = n())
 ```
+-->
 
 ## 1. Pitches Seen vs. Decisions Made
 - Step 1. Create data frame for pitches seen
 - R code:
-    - `pitch`: Current data frame
-    - `group_by()`, `summarize()`, `n()`: *`dplyr`* verbs
-    - `gameday_link`: Unique date/team label
-    - `seen`: New name for variable `n()`
-    - `observed`: Name of new data frame
+    - *`pitch`*: Current data frame
+    - *`group_by()`*, *`summarize()`*, *`n()`*: *`dplyr`* verbs
+    - *`gameday_link`*: Unique date/team label
+    - *`seen`*: New name for variable `n()`
+    - *`observed`*: Name of new data frame
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -268,7 +276,7 @@ decisions <- pitch %>%
 - Step 2. Create data frame for decisions made
 - We need to omit all pitches/outcomes except for called strikes and called balls
 - R code:
-    - `filter()`: Returns rows with matching conditions
+    - *`filter()`*: Returns rows with matching conditions
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -290,7 +298,7 @@ decisions <- pitch %>%
 ```
 
 ## 1. Pitches Seen vs. Decisions Made
-- Step 3. Join `observed` and `decisions` by `gameday_link`
+- Step 3. Join *`observed`* and *`decisions`* by *`gameday_link`*
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -298,9 +306,9 @@ pitches <- inner_join(observed, decisions, by = "gameday_link")
 ```
 
 ## 1. Pitches Seen vs. Decisions Made
-- Step 3. Join `observed` and `decisions` by `gameday_link`
+- Step 3. Join *`observed`* and *`decisions`* by *`gameday_link`*
 - R code:
-    - `inner_join()`: Returns observations that match in both x and y
+    - *`inner_join()`*: Returns observations that match in both x and y
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -308,7 +316,7 @@ pitches <- inner_join(observed, decisions, by = "gameday_link")
 ```
 
 ## 1. Pitches Seen vs. Decisions Made
-- Step 3. Join `observed` and `decisions` by `gameday_link`
+- Step 3. Join *`observed`* and *`decisions`* by *`gameday_link`*
 
 \footnotesize
 ```{r}
@@ -326,7 +334,8 @@ pitches <- pitches %>%
 
 ## 1. Pitches Seen vs. Decisions Made
 - Step 4. Calculate proportion of pitches requiring decision
-- R code: `mutate()`: Adds new variable
+- R code: 
+    - *`mutate()`*: Adds new variable
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -365,9 +374,9 @@ pitches <- pitches %>%
 \centering
 \begin{tabular}{lllr}
 \hline
-Mean & SD & SEM & 95\% CI \\ 
+\em{M} & \em{SD} & \em{SEM} & 95\% CI \\
 \hline
-0.94 & 0.24 & 0.05 & [0.84, 0.98] \\ 
+0.94 & 0.24 & 0.05 & [0.84, 0.98] \\
 \hline
 \end{tabular}
 \end{table}

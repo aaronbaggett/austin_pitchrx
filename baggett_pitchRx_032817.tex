@@ -1,0 +1,40 @@
+% sthlm beamer theme frame:
+\documentclass[aspectratio=1610, 14pt]{beamer}
+\usetheme{sthlm}
+
+% Package list:
+\usepackage{
+booktabs,
+%dtklogos,
+fontspec,
+graphicx,
+multicol,
+pgfplots,
+ragged2e,
+tabularx,
+tikz,
+wasysym,
+hyperref,
+hanging,
+multirow
+}
+
+% Title page:
+\title{\Medium{ACCESSING AND ANALYZING MLB PITCH TRACKING DATA IN R}}
+\subtitle{Applying the Scientific Method}
+\date{March 28, 2017}
+\author{Aaron R. Baggett, Ph.D.}
+\institute{University of Mary Hardin-Baylor\\
+{\color{sthlmDarkBlue}
+{\Medium{Department of Psychology}}}}
+
+% PDF metadata:
+\hypersetup{
+pdfauthor = {Aaron R. Baggett},
+pdfsubject = {Higher Education},
+pdfkeywords = {psychology, research methods, statistics},
+pdfcreator = {XeTeX with hyperref package}
+}
+
+% Beamer content file:
+\input{baggett_pitchRx_032817_body.tex}
