@@ -10,6 +10,7 @@
 # Load package libraries
 library(dplyr)
 library(repmis)
+library(ggplot2)
 
 # Load *pitch* data.frame
 repmis::source_data("https://github.com/aaronbaggett/austin_pitchrx/blob/master/data/atbat.Rda?raw=true")
@@ -118,8 +119,7 @@ ggplot(data = ind_acc, mapping = aes(x = mean_acc, y = umpire, group = 1)) +
 # Umpire accuracy for each game by umpire
 acc_df <- pfx_16 %>% 
   group_by(game_date, umpire) %>% 
-  summarize(mean_acc = mean(u_test_adj), 
-    sd_acc = sd(u_test_adj))
+  summarize(mean_acc = mean(u_test_adj))
 
 # Count number of games umpired during season
 games <- as.data.frame(table(acc_df$umpire))$Freq
